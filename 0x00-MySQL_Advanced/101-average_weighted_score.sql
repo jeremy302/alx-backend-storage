@@ -29,6 +29,3 @@ BEGIN
   CLOSE cur;
 END //
 DELIMITER ;
-
-
-CALL ComputeAverageWeightedScoreForUsers();
