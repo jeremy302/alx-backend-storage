@@ -1,0 +1,2 @@
+// lists a collection
+print(db.school.count());
