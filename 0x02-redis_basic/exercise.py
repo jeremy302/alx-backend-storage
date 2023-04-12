@@ -53,14 +53,14 @@ class Cache:
     ''' cache class '''
     def __init__(self) -> None:
         ''' class constructor '''
-        self._redis: redis.Redis = redis.Redis()
+        self._redis = redis.Redis()
         self._redis.flushdb(True)
 
     @call_history
     @count_calls
-    def store(self, data: str | bytes | int | float) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         ''' stores data '''
-        key: str = str(uuid.uuid4())
+        key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
 
