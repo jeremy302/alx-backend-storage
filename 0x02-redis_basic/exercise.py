@@ -27,7 +27,7 @@ def call_history(method: Callable) -> Callable:
         self._redis.rpush("{}:inputs".format(method.__qualname__), input)
         output = method(self, *args, **kwargs)
         self._redis.rpush(
-            "{}:outputs".format(method.__qualname__), str(output))
+            "{}:outputs".format(method.__qualname__), output)
         return output
     return inner
 
@@ -54,7 +54,7 @@ class Cache:
     def __init__(self) -> None:
         ''' class constructor '''
         self._redis: redis.Redis = redis.Redis()
-        self._redis.flushdb()
+        self._redis.flushdb(True)
 
     @call_history
     @count_calls
