@@ -27,7 +27,7 @@ def main():
         {'$sort': {'count': -1}}, {'$limit': 10}]))
     print('IPs:')
     for ip in top_ips:
-        print('{}: {}'.format(ip['_id'], ip['count']))
+        print('\t{}: {}'.format(ip['_id'], ip['count']))
 
 
 if __name__ == '__main__':
