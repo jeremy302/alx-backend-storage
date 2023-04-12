@@ -5,8 +5,8 @@ from pymongo import MongoClient
 
 def main():
     ''' main function '''
-    # client = MongoClient('mongodb://127.0.0.1:27017')
-    client = MongoClient('mongodb://172.18.0.2:27017')
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    # client = MongoClient('mongodb://172.18.0.2:27017')
     db = client.logs
     col = db.nginx
 
