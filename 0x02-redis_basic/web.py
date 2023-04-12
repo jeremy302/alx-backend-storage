@@ -27,8 +27,11 @@ def cache(fn: Callable) -> Callable:
 @cache
 def get_page(url: str) -> str:
     ''' gets page '''
-    res = requests.get(url)
-    return res.text
+    try:
+        res = requests.get(url)
+        return res.text
+    except:
+        return ''
 
 
 # @cache
