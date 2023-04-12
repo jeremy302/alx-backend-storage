@@ -58,7 +58,7 @@ class Cache:
 
     @call_history
     @count_calls
-    def store(self, data: str | bytes | int | float) -> uuid.UUID:
+    def store(self, data: str | bytes | int | float) -> str:
         ''' stores data '''
         key: str = str(uuid.uuid4())
         self._redis.set(key, data)
