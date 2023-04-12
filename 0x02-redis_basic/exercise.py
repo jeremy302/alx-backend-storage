@@ -37,7 +37,7 @@ def replay(fn: Callable) -> None:
     r = fn.__self__._redis
     key = fn.__qualname__
     count = int(r.get(key) or 0)
-    print('{} was called {} times'.format(key, count))
+    print('{} was called {} times:'.format(key, count))
 
     if not count:
         return
